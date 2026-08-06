@@ -75,12 +75,35 @@
 
 @media (max-width: 992px) {
   .nav {
-    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    flex-direction: column;
+    padding: 2rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: translateY(-150%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+  }
+  
+  .nav.mobileNavOpen {
+    transform: translateY(0);
+  }
+
+  .navLink {
+    font-size: 1.1rem;
+    width: 100%;
+    text-align: center;
   }
   
   .mobileMenuBtn {
     display: block;
     color: var(--color-black);
+    background: none;
+    border: none;
+    cursor: pointer;
   }
   
   .quoteBtn {
