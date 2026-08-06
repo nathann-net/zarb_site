@@ -1,27 +1,36 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      // Force play on mobile, catch any errors (e.g. Low Power Mode)
+      videoRef.current.play().catch(() => {
+        // Silently fail if browser blocks it
+      });
+    }
+  }, []);
+
   return (
     <section id="inicio" className={`section-padding ${styles.hero}`}>
       <div className={styles.videoOverlay}></div>
-      <div 
-        dangerouslySetInnerHTML={{
-          __html: `
-            <video 
-              autoplay 
-              loop 
-              muted 
-              playsinline 
-              class="${styles.heroVideo}"
-            >
-              <source src="/hero-video.mp4" type="video/mp4" />
-            </video>
-          `
-        }}
-      />
+      <video 
+        ref={videoRef}
+        autoPlay 
+        loop 
+        muted 
+        playsInline 
+        className={styles.heroVideo}
+      >
+        <source src="/hero-video.mp4" type="video/mp4" />
+      </video>
       <div className={`container ${styles.heroContainer} animate-fade-in`}>
         
         <div className={styles.heroContent}>

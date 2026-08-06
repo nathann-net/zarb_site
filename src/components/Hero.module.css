@@ -20,6 +20,11 @@
   will-change: transform;
   z-index: 0;
   object-fit: cover;
+  pointer-events: none;
+}
+
+.heroVideo::-webkit-media-controls {
+  display: none !important;
 }
 
 .videoOverlay {
