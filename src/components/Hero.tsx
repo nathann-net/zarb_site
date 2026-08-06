@@ -7,15 +7,21 @@ export default function Hero() {
   return (
     <section id="inicio" className={`section-padding ${styles.hero}`}>
       <div className={styles.videoOverlay}></div>
-      <video 
-        autoPlay 
-        loop 
-        muted 
-        playsInline 
-        className={styles.heroVideo}
-      >
-        <source src="/hero-video.mp4" type="video/mp4" />
-      </video>
+      <div 
+        dangerouslySetInnerHTML={{
+          __html: `
+            <video 
+              autoplay 
+              loop 
+              muted 
+              playsinline 
+              class="${styles.heroVideo}"
+            >
+              <source src="/hero-video.mp4" type="video/mp4" />
+            </video>
+          `
+        }}
+      />
       <div className={`container ${styles.heroContainer} animate-fade-in`}>
         
         <div className={styles.heroContent}>

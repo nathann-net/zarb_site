@@ -283,12 +283,14 @@
 
 @media (max-width: 576px) {
   .floatingCards {
-    left: -20px;
+    left: -10px;
     top: 5%;
+    width: 100%;
   }
   
   .card {
-    width: 240px;
+    width: 90%;
+    max-width: 280px;
     padding: 1rem;
   }
   
