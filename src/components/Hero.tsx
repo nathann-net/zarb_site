@@ -1,28 +1,45 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playFailed, setPlayFailed] = useState(false);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Autoplay was blocked (usually iOS Low Power Mode)
+          setPlayFailed(true);
+        });
+      }
+    }
+  }, []);
+
   return (
-    <section id="inicio" className={`section-padding ${styles.hero}`}>
+    <section id="inicio" className={`section-padding ${styles.hero}`} style={{ backgroundImage: "url('/hero-bg-clean.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}>
       <div className={styles.videoOverlay}></div>
-      <div 
-        dangerouslySetInnerHTML={{
-          __html: `
-            <video 
-              autoplay 
-              loop 
-              muted 
-              playsinline 
-              class="${styles.heroVideo}"
-              style="pointer-events: none;"
-            >
-              <source src="/hero-video.mp4" type="video/mp4" />
-            </video>
-          `
-        }}
-      />
+      
+      {!playFailed && (
+        <video 
+          ref={videoRef}
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className={styles.heroVideo}
+          style={{ pointerEvents: "none" }}
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
+      )}
+      
       <div className={`container ${styles.heroContainer} animate-fade-in`}>
         
         <div className={styles.heroContent}>
