@@ -1,0 +1,298 @@
+.about {
+  background-color: var(--color-offwhite);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background dots pattern */
+.about::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 48%;
+  width: 200px;
+  height: 200px;
+  background-image: radial-gradient(var(--color-gray-300) 2px, transparent 2px);
+  background-size: 20px 20px;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7rem;
+  align-items: center;
+}
+
+/* Left Column */
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+  letter-spacing: 0.5px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+}
+
+.title {
+  font-size: 2.75rem;
+  line-height: 1.2;
+  color: var(--color-black);
+  margin-bottom: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.highlight {
+  color: var(--color-primary);
+}
+
+.description {
+  color: var(--color-gray-500);
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.boldPrimary {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* Grid Icons Bottom Left */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.featureItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.featureIcon {
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.featureTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.featureDesc {
+  font-size: 0.75rem;
+  color: var(--color-gray-500);
+  line-height: 1.4;
+}
+
+/* Right Column */
+.visual {
+  position: relative;
+  width: 100%;
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.imageWrapper::before {
+  content: '';
+  display: block;
+  padding-bottom: 75%; /* 4:3 aspect ratio */
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Shadow Box Behind Image */
+.visual::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-black);
+  border-radius: 24px;
+  z-index: 1;
+}
+
+/* Floating Cards */
+.floatingCards {
+  position: absolute;
+  top: 10%;
+  left: -70px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card {
+  background-color: var(--color-white);
+  padding: 1.25rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 280px;
+}
+
+.cardIcon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cardContent h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: 0.25rem;
+}
+
+.cardContent p {
+  font-size: 0.75rem;
+  color: var(--color-gray-500);
+  line-height: 1.4;
+}
+
+/* Bottom Pill */
+.bottomPill {
+  position: relative;
+  z-index: 3;
+  margin-top: 3rem;
+  background-color: var(--color-primary-light);
+  padding: 1.5rem 2rem;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.pillIconWrapper {
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
+.pillIcon {
+  color: var(--color-primary);
+  width: 32px;
+  height: 32px;
+}
+
+.pillText {
+  font-size: 1.05rem;
+  color: var(--color-black);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+@media (max-width: 1200px) {
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .floatingCards {
+    left: -40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  
+  .visual {
+    margin-top: 4rem;
+    padding-left: 40px;
+  }
+  
+  .bottomPill {
+    flex-direction: column;
+    border-radius: 24px;
+    text-align: center;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .floatingCards {
+    left: -20px;
+    top: 5%;
+  }
+  
+  .card {
+    width: 240px;
+    padding: 1rem;
+  }
+  
+  .visual {
+    padding-left: 20px;
+  }
+}
