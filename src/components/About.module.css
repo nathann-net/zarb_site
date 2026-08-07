@@ -154,7 +154,12 @@
 }
 
 /* Shadow Box Behind Image */
-.visual::after {
+.imageShadowBox {
+  position: relative;
+  width: 100%;
+}
+
+.imageShadowBox::after {
   content: '';
   position: absolute;
   bottom: -20px;

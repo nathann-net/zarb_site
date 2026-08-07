@@ -63,13 +63,15 @@ export default function About() {
 
           {/* Right Column */}
           <div className={styles.visual}>
-            <div className={styles.imageWrapper}>
-              <Image 
-                src="/about-warehouse.jpg"
-                alt="Galpão ZARB DISTRIBUIDORA"
-                fill
-                className={styles.image}
-              />
+            <div className={styles.imageShadowBox}>
+              <div className={styles.imageWrapper}>
+                <Image 
+                  src="/about-warehouse.jpg"
+                  alt="Galpão ZARB DISTRIBUIDORA"
+                  fill
+                  className={styles.image}
+                />
+              </div>
             </div>
 
             <div className={styles.floatingCards}>
